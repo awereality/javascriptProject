@@ -1,0 +1,157 @@
+* {
+    margin: 0;
+}
+body {
+    background-color: black;
+    position:aboslute;
+    text-align:center;
+}
+div {
+    flex:1;
+}
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 5em;
+}
+#bar {
+    animation: fadeIn 5s 1;
+}
+.sidenav a {
+    padding: .5em .5em .5em 2em;
+    text-decoration: none;
+    font-size: 2em;
+    color: #ffffff;
+    opacity:0.8;
+    display:block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+    animation: fadeOut 5s infinite;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 1.5em;
+    font-size: 2em;
+    margin-left: 3em;
+}
+aside {
+    text-align:center;
+}
+#logo {
+    width:10%;
+    height:10%;
+    opacity:85%;
+    animation:slideDown 3s 1;
+}
+#cir {
+    animation: fadeIn 5s 1;
+    width:6%;
+    height:6%;
+}
+#cirTwo {
+    animation: fadeIn 5s 1;
+    width:6%;
+    height:6%;
+}
+#squ {
+    width:6%;
+    height:6%;
+}
+#tri {
+    width:8%;
+    height:8%;
+}
+#tictactoe {
+    text-align:right;
+    opacity:85%;
+    padding: 4em 0em 0em 0em;
+    width:10%;
+    height:15%;
+    animation-delay:10s;
+    animation:fadeIn 7s infinite;
+    animation-direction:alternate;
+}
+#poke {
+    padding: 4em 0em 0em 0em;
+    text-align:right;
+    width:8%;
+    height:8%;
+    animation-delay:10s;
+    animation:fadeIn 5s infinite;
+    animation-direction:alternate;
+}
+#card {
+    padding:4em 0em 0em 0em;
+    width:8%;
+    height:8%;
+    animation-delay: 10s;
+    animation:fadeIn 6s infinite;
+    animation-direction:alternate;
+}
+span {
+    text-decoration:none;
+    color:white;
+    width:12.5em;
+}
+#cir:hover {
+    animation:fadeOut 5s infinite;
+}
+#cirTwo:hover {
+    animation:fadeOut 5s infinite;
+}
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;} /* - padding for mobile */
+    .sidenav a {font-size: 18x;} /* - font size mobile */
+}
+@keyframes slideDown {
+    0% {-webkit-transform: translateY(-100%);}
+    100% {-webkit-transform: translateY(-5%);}
+}
+@keyframes fadeOut {
+    from {opacity: 90%;}
+    to {opacity: 1%;}
+}
+@keyframes fadeIn {
+    from {opacity: 0%;}
+    to {opacity: 90%;}
+}
+/*
+.title{ grid-area:t;}
+.mySideNav{ grid-area:m;}
+.sidenav{ grid-area:s;}
+.games{ grid-area: g;}
+.footer{ grid-area:f}
+
+.grid-container{
+    display: grid;
+    grid-template-rows:max-content;
+    grid-template-areas:
+        't t t t t'
+        'm m m m m'
+        's s s s s'
+        'g g g g g'
+        'f f f f f';
+}
+/*mobile
+@media (max-width:600px) {
+    .grid-container {
+        grid-template-areas:
+        't t t'
+        'm m m'
+        's s s'
+        'g g g'
+        'f f f'
+    }
+}*/
