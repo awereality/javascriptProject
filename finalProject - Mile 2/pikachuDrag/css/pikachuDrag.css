@@ -1,0 +1,23 @@
+body {
+    background-image:url('../media/background.jpg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+h1 {
+    color:rgb(91, 108, 110);
+}
+section {
+    display:flex;
+    flex-wrap:wrap;
+}
+img {
+    width: 150px;
+    height: 150px;
+    position: relative;
+}
+p {
+    display: inline-block;
+    flex:1;
+    width:100px;
+    height:100px;
+}

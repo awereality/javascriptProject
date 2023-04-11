@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>awe/reality | tic-tac-toe</title>
+    <link rel="stylesheet" href="css/tictactoe.css" media="all"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
+</head>
+<body>
+    <img id="logo" src="media/aweLogo.png" style="float:center; max-width:25em; max-height:25em;" alt="awe"><br>
+    <!-- designer bar w/ logo-->
+    <img id="cir" onclick="openNav()" src="media/cir.png" alt="cir"><img id="bar" src="media/bar.png" alt="bar"><img id="cirTwo" onclick="openNav()" src="media/cir.png" alt="cir"> 
+    <h1>Tic-Tac-Toe</h1>
+    <!-- overlay nav-->
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="/finalProject/landing.html">Landing</a>
+        <a href="/finalProject/blackjack/blackjack.html">Blackjack</a>
+        <a href="/finalProject/tictactoe/tictactoe.html">Tic-Tac-Toe</a>
+        <a href="/finalProject/pikachuDrag/pikachuDrag.html">Drop N' Drag</a>
+        <a href="/finalProject/readme.txt">readme.txt</a>
+     </div>
+     <!-- tic-tac-toe grid -->
+    <div class="boxContainer" id="container">
+        <div class="box" id="0"></div>
+        <div class="box" id="1"></div>
+        <div class="box" id="2"></div>
+        <div class="box" id="3"></div>
+        <div class="box" id="4"></div>
+        <div class="box" id="5"></div>
+        <div class="box" id="6"></div>
+        <div class="box" id="7"></div>
+        <div class="box" id="8"></div>
+    </div>
+    <!-- game message-->
+    <p id="msg">Tic-tac-toe is a game in which two players take turns in drawing either an 'O' or an 'X' in squares of a grid. </p>
+    <!-- clear the grid-->
+    <button onclick=reset() id="reset">Reset</button>
+
+    <script>
+        /* use this to input selection upon click */
+        var playerTurn = "X"; 
+        /* use these doms vars to check winning conditions */
+        var box0 = document.getElementById("0").value;
+        var box1 = document.getElementById("1").value;
+        var box2 = document.getElementById("2").value;
+        var box3 = document.getElementById("3").value;
+        var box4 = document.getElementById("4").value;
+        var box5 = document.getElementById("5").value;
+        var box6 = document.getElementById("6").value;
+        var box7 = document.getElementById("7").value;
+        var box8 = document.getElementById("8").value;
+
+        function openNav() { 
+            document.getElementById("mySidenav").style.width = "15em";
+        }
+            
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+        
+        /* enabling bar circles to be interactive */
+        document.getElementById("cir").addEventListener("dblclick", closeNav);
+        document.getElementById("cirTwo").addEventListener("dblclick", closeNav);
+        
+        /* display current player turn information */
+        document.getElementById("container").addEventListener("click", function() {
+            document.getElementById("msg").innerHTML="It's time to play! Player " + playerTurn + ", take your turn!";
+        });
+
+        /* 9 event listeners for clicks on the grid */
+
+        document.getElementById("0").addEventListener("click", function() {
+            document.getElementById("0").innerHTML=playerTurn;
+            if(playerTurn == "X") {
+                playerTurn = "O";
+            }
+            else {
+                playerTurn = "X";
+            }
+            document.getElementById("0").disabled = true;
+        });
+
+        document.getElementById("1").addEventListener("click", function() {
+            document.getElementById("1").innerHTML=playerTurn;
+            if(playerTurn == "X") {
+                playerTurn = "O";
+            }
+            else {
+                playerTurn = "X";
+            }
+        });
+
+        document.getElementById("2").addEventListener("click", function() {
+            document.getElementById("2").innerHTML=playerTurn;
+            if(playerTurn == "X") {
+                playerTurn = "O";
+            }
+            else {
+                playerTurn = "X";
+            }
+        });
+
+        document.getElementById("3").addEventListener("click", function() {
+            document.getElementById("3").innerHTML=playerTurn;
+            if(playerTurn == "X") {
+                playerTurn = "O";
+            }
+            else {
+                playerTurn = "X";
+            }
+        });
+
+        document.getElementById("4").addEventListener("click", function() {
+            document.getElementById("4").innerHTML=playerTurn;
+            if(playerTurn == "X") {
+                playerTurn = "O";
+            }
+            else {
+                playerTurn = "X";
+            }
+        });
+
+        document.getElementById("5").addEventListener("click", function() {
+            document.getElementById("5").innerHTML=playerTurn;
+            if(playerTurn == "X") {
+                playerTurn = "O";
+            }
+            else {
+                playerTurn = "X";
+            }
+        });
+
+        document.getElementById("6").addEventListener("click", function() {
+            document.getElementById("6").innerHTML=playerTurn;
+            if(playerTurn == "X") {
+                playerTurn = "O";
+            }
+            else {
+                playerTurn = "X";
+            }
+        });
+
+        document.getElementById("7").addEventListener("click", function() {
+            document.getElementById("7").innerHTML=playerTurn;
+            if(playerTurn == "X") {
+                playerTurn = "O";
+            }
+            else {
+                playerTurn = "X";
+            }
+        });
+
+        document.getElementById("8").addEventListener("click", function() {
+            document.getElementById("8").innerHTML=playerTurn;
+            if(playerTurn == "X") {
+                playerTurn = "O";
+            }
+            else {
+                playerTurn = "X";
+            }
+        });
+        /* Conditions not met...  *
+            if(box1 == "O") {
+                document.getElementById("test").innerHTML="WOOOOOOOOOO";
+            }
+        /* looped dom reset */
+        function reset(){
+            for(let i = 0; i<9; i++){
+            if(true){
+                document.getElementById([i]).innerHTML=" ";
+            }
+         }
+            document.getElementById("msg").innerHTML="Tic-tac-toe is a game in which two players take turns in drawing either an 'O' or an 'X' in squares of a grid.";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width"></meta>
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "15em";
+        }
+            
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+        </script>
+    <title>awe/reality</title>
+    <link rel="stylesheet" href="css/blackjack.css" media="all"/>
+</head>
+<body>
+<article class="grid-container">
+    <header class="title"><img id="logo" src="media/aweLogo.png" style="float:center; max-width:25em; max-height:25em;" alt="awe"><br></header>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="/finalProject/landing.html">Landing</a>
+        <a href="/finalProject/blackjack/blackjack.html">Blackjack</a>
+        <a href="/finalProject/tictactoe/tictactoe.html">Tic-Tac-Toe</a>
+        <a href="/finalProject/pikachuDrag/pikachuDrag.html">Drop N' Drag</a>
+        <a href="readme.txt">readme.txt</a>
+     </div>
+<div class="games">
+    <img id="cir" onclick="openNav()" src="media/cir.png" alt="cir"><img id="bar" src="media/bar.png" alt="bar"><img id="cirTwo" onclick="openNav()" src="media/cir.png" alt="cir"><br>
+    <a href="blackjack.html" target="_blank"><img id="card" src="media/WIP.png" alt="blackjack"><br><span>Work in Progress</span><br></a>
+</div>
+</article>
+</body>
+</html>

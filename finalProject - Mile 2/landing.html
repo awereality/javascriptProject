@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width"></meta>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
+    <title>awe/reality</title>
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "15em";
+        }
+            
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+        </script>
+    <link rel="stylesheet" href="css/aweScreen.css" media="all"/>
+</head>
+<body>
+<article class="grid-container">
+    <header class="title"><img id="logo" src="media/aweLogo.png" style="float:center; max-width:25em; max-height:25em;" alt="awe"><br></header>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="landing.html">Landing</a>
+        <a href="/finalProject/blackjack/">Blackjack</a>
+        <a href="/finalProject/tictactoe/tictactoe.html">Tic-Tac-Toe</a>
+        <a href="/finalProject/pikachuDrag/pikachuDrag.html">Drop N' Drag</a>
+        <a href="/finalProject/readme.txt">readme.txt</a>
+     </div>
+<aside>
+<div class="games">
+    <img id="cir" onclick="openNav()" src="media/cir.png" alt="cir"><img id="bar" src="media/bar.png" alt="bar"><img id="cirTwo" onclick="openNav()" src="media/cir.png" alt="cir"><br>
+    <a href="/finalProject/blackjack/blackjack.html" target="_blank"><img id="card" src="media/blackjack.png" alt="blackjack"><br><span>Blackjack<br>-<br>A card game where players obtain a combination of cards totaling 21 points. </span><br></a>
+    <a href="/finalProject/tictactoe/tictactoe.html" target="_blank"><img id="tictactoe" src="media/tictactoe.png" alt="tictactoe"><br><span>Tic-Tac-Toe<br>-<br>A game where players take turns filling in the grid with X's and O's until one reaches a sequential pattern.</span><br></a>
+    <a href="/finalProject/pikachuDrag/pikachuDrag.html" target="_blank"><img id="poke" src="media/pokeball.png" alt="pokeball"><br><span>Poke Drag n` Drop<br>-<br>A game where you can tinker with your favorite pokemon all in one place!</span><br></a><br></aside>
+</div>
+<footer class="foot">
+    <div><img id="barTwo" src="media/bar2.png" style="max-height:25.5em;" alt="bar2"></div>
+</div>
+</footer>
+</article>
+</body>
+</html>
