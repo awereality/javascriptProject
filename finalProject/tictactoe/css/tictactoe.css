@@ -1,3 +1,8 @@
+* {
+    font-family: 'Caveat', cursive;
+    position:aboslute;
+    text-align:center;
+}
 body {
     font-family: 'Caveat', cursive;
     background-color:black;
@@ -19,16 +24,23 @@ body {
     background-color:blanchedalmond;
     border-radius: 10px;
     font-size:12px;
+    font-family:'Times New Roman', Times, serif;
+}
+#howTo {
+    color:aquamarine;
+}
+#directions {
+    animation: none;
 }
 #cir {
-    animation: fadeIn 5s 1;
     width:6%;
     height:6%;
+    animation: pulse-white 2s infinite;
 }
 #cirTwo {
-    animation: fadeIn 5s 1;
     width:6%;
     height:6%;
+    animation: pulse-white 2s infinite;
 }
 .sidenav {
     height: 100%;
@@ -83,7 +95,7 @@ h1 {
     height:100px;
     padding:20px;
     font-size:40px;
-    color:white;
+    color:grey;
     border:2px solid rgb(158, 87, 59);
     background-color:blanchedalmond;
     text-align: center;

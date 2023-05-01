@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>pikachuDrag | GM</title>
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link href="css/pikachuDrag.css" rel="stylesheet" type="text/css"/>
+    <script>
+        $(function()
+        {
+            $("#Pokemon1").draggable();
+            $("#Pokemon2").draggable();
+            $("#Pokemon3").draggable();
+            $("#Pokemon4").draggable();
+            $("#Pokemon5").draggable();
+            $("#Pokemon6").draggable();
+            $("#Pokemon7").draggable();
+            $("#Pokemon8").draggable();
+        });
+
+        function openNav() { 
+            $("#mySidenav").css("width","15em");
+        }
+            
+        function closeNav() {
+           $("#mySidenav").css("width", "0em");
+        }
+    </script>
+</head>
+<header>
+    <img id="cir" onclick="openNav();" ondblclick="closeNav();" src="media/cir.png"><img id="bar3" src="media/bar3.png">
+</header>
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../landing.html">Home</a>
+    <a href="../flyTrap/flyTrap.html">Fly Trap</a>
+    <a href="../tictactoe/tictactoe.html">Tic-Tac-Toe</a>
+    <a href="../pikachuDrag/pikachuDrag.html">Drop N' Drag</a>
+    <a href="../readme.txt">readme.txt</a>
+    <h1 id="howTo">How-To-Play</h1><br>
+    <p id="directions">Left click your favorite Pokemon and drag them on the green field with their friends!</p>
+ </div>
+<body>
+    <section>
+        <p id="Pokemon1"><img src="media/pokemon1.png"/></p><br>
+        <p id="Pokemon2"><img src="media/pokemon2.png"/></p><br>
+        <p id="Pokemon3"><img src="media/pokemon3.png"/></p><br>
+        <p id="Pokemon4"><img src="media/pokemon4.png"/></p><br>
+        <p id="Pokemon5"><img src="media/pokemon5.png"/></p><br>
+        <p id="Pokemon6"><img src="media/pokemon6.png"/></p><br>
+        <p id="Pokemon7"><img src="media/pokemon7.png"/></p><br>
+        <p id="Pokemon8"><img src="media/pokemon8.png"/></p><br>
+    </section>
+    <div>
+        <img id="canvas" src="media/background.jpg">
+    </div>
+</body>
+</html>

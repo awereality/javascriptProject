@@ -1,7 +1,11 @@
+* {
+    font-family: 'Caveat', cursive;
+}
 body {
     background-image:url('../media/background.jpg');
     background-size: 100%;
     background-repeat: no-repeat;
+    font-family: 'Caveat', cursive;
 }
 h1 {
     color:rgb(91, 108, 110);
@@ -20,4 +24,7 @@ p {
     flex:1;
     width:100px;
     height:100px;
+}
+#readme {
+    float:right;
 }

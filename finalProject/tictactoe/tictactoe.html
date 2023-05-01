@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>awe/reality | tic-tac-toe</title>
+    <link rel="stylesheet" href="css/tictactoe.css" media="all"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body onload="coreLogic();">
+    <img id="logo" src="media/aweLogo.png" style="float:center; max-width:25em; max-height:25em;" alt="awe"><br>
+    <!-- designer bar w/ logo-->
+    <img id="cir" onclick="openNav()" src="media/cir.png" alt="cir"><img id="bar" src="media/bar.png" alt="bar"><img id="cirTwo" onclick="openNav()" src="media/cir.png" alt="cir"> 
+    <h1>Tic-Tac-Toe</h1>
+    <!-- overlay nav-->
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="../landing.html">Landing</a>
+        <a href="../flyTrap/flyTrap.html">Fly Trap</a>
+        <a href="../tictactoe/tictactoe.html">Tic-Tac-Toe</a>
+        <a href="../pikachuDrag/pikachuDrag.html">Drop N' Drag</a>
+        <a href="../readme.txt">readme.txt</a>
+        <h1 id="howTo">How-To-Play</h1><br>
+        <p id="directions">Left click a tile you would like to place either an O or X on. Fill the grid until you make a sequential pattern of 3!</p>
+     </div>
+     <!-- tic-tac-toe grid -->
+    <div class="boxContainer" id="container">
+        <input type="text" class="box" id="0" onclick="click0(); coreLogic();" readonly></input>
+        <input type="text" class="box" id="1" onclick="click1(); coreLogic();" readonly></input>
+        <input type="text" class="box" id="2" onclick="click2(); coreLogic();" readonly></input>
+        <input type="text" class="box" id="3" onclick="click3(); coreLogic();" readonly></input>
+        <input type="text" class="box" id="4" onclick="click4(); coreLogic();" readonly></input>
+        <input type="text" class="box" id="5" onclick="click5(); coreLogic();" readonly></input>
+        <input type="text" class="box" id="6" onclick="click6(); coreLogic();" readonly></input>
+        <input type="text" class="box" id="7" onclick="click7(); coreLogic();" readonly></input>
+        <input type="text" class="box" id="8" onclick="click8(); coreLogic();" readonly></input>
+    </div>
+    <!-- game message-->
+    <p id="msg">Tic-tac-toe is a game in which two players take turns in drawing either an 'O' or an 'X' in squares of a grid.</p>
+    <!-- clear the grid-->
+    <button onclick=gameReset() id="reset">Reset</button>
+
+    <script>
+        var playerTurn = "X";
+        var gameOver = false;
+
+        function coreLogic() {
+            var box0, box1, box2, box3, box4, box5, box6, box7, box8;
+            box0 = $("#0").val();
+            box1 = $("#1").val();
+            box2 = $("#2").val();
+            box3 = $("#3").val();
+            box4 = $("#4").val();
+            box5 = $("#5").val();
+            box6 = $("#6").val();
+            box7 = $("#7").val();
+            box8 = $("#8").val();
+
+            // winning combos
+
+            // b0 b1 b2
+            // b3 b4 b5
+            // b6 b7 b8
+
+            // (x) combos across -->
+
+            if((box0 == "X") && (box1 == "X") && (box2 == "X") && (playerTurn != "X")) {
+                hideGame();
+                $("#msg").html("Player X has won!!!");
+            }
+
+            if((box3 == "X") && (box4 == "X") && (box5 == "X") && (playerTurn != "X")) {
+                hideGame();
+                $("#msg").html("Player X has won!!!");
+            }
+
+            if((box6 == "X") && (box7 == "X") && (box8 == "X") && (playerTurn != "X")) {
+                hideGame();
+                $("#msg").html("Player X has won!!!");
+            }
+
+            // (x) combos across -->
+
+            // (x) combos vertically -->
+
+            if((box0 == "X") && (box3 == "X") && (box6 == "X") && (playerTurn != "X")) {
+                hideGame();
+                $("#msg").html("Player X has won!!!");
+            }
+
+            if((box1 == "X") && (box4 == "X") && (box7 == "X") && (playerTurn != "X")) {
+                hideGame();
+                $("#msg").html("Player X has won!!!");
+            }
+
+            if((box2 == "X") && (box5 == "X") && (box8 == "X") && (playerTurn != "X")) {
+                hideGame();
+                $("#msg").html("Player X has won!!!");
+            }
+
+            // (x) combos vertically -->
+
+            // (x) combos diag -->
+
+            if((box2 == "X") && (box4 == "X") && (box6 == "X") && (playerTurn != "X")) {
+                hideGame();
+                $("#msg").html("Player X has won!!!");
+            }
+
+            if((box0 == "X") && (box4 == "X") && (box8 == "X") && (playerTurn != "X")) {
+                hideGame();
+                $("#msg").html("Player X has won!!!");
+            }
+
+            // (x) combos diag -->
+
+            // ------------------ //
+
+            // (o) combos across -->
+
+            if((box0 == "O") && (box1 == "O") && (box2 == "O") && (playerTurn != "O")) {
+                hideGame();
+                $("#msg").html("Player O has won!!!");
+            }
+
+            if((box3 == "O") && (box4 == "O") && (box5 == "O") && (playerTurn != "O")) {
+                hideGame();
+                $("#msg").html("Player O has won!!!");
+            }
+
+            if((box6 == "O") && (box7 == "O") && (box8 == "O") && (playerTurn != "O")) {
+                hideGame();
+                $("#msg").html("Player O has won!!!");
+            }
+
+            // (o) combos across -->
+
+            // (o) combos vertically -->
+
+            if((box0 == "O") && (box3 == "O") && (box6 == "O") && (playerTurn != "O")) {
+                hideGame();
+                $("#msg").html("Player O has won!!!");
+            }
+
+            if((box1 == "O") && (box4 == "O") && (box7 == "O") && (playerTurn != "O")) {
+                hideGame();
+                $("#msg").html("Player O has won!!!");
+            }
+
+            if((box2 == "O") && (box5 == "O") && (box8 == "O") && (playerTurn != "O")) {
+                hideGame();
+                $("#msg").html("Player O has won!!!");
+            }
+
+            // (o) combos vertically -->
+
+            // (o) combos diag -->
+
+            if((box2 == "O") && (box4 == "O") && (box6 == "O") && (playerTurn != "O")) {
+                hideGame();
+                $("#msg").html("Player O has won!!!");
+            }
+
+            if((box0 == "O") && (box4 == "O") && (box8 == "O") && (playerTurn != "O")) {
+                hideGame();
+                $("#msg").html("Player O has won!!!");
+            }
+
+            // (o) combos diag -->
+
+            // catseye combo -->
+
+            if((box0 == "X" || box0 == "O") && (box1 == "X" || box1 == "O") && (box2 == "X" || box2 == "O")&& (box3 == "X" || box3 == "O")&& (box4 == "X" || box4 == "O")&& (box5 == "X" || box5 == "O") && (box6 == "X" || box6 == "O") && (box7 == "X" || box7 == "O") && (box8 == "X" || box8 == "O") && (gameOver == false)) {
+                hideGame();
+                $("#msg").html("Game has ended in a tie!");
+            }
+
+            // catseye combo -->
+        }
+
+        function hideGame() {
+            $("#container").css("display", "none");
+            var gameOver = true;
+        }
+
+        function showGame() {
+            $("#container").css("display", "grid");
+        }
+        
+        function gameReset() {
+            showGame();
+            $(".box").val(" ");
+            $("#msg").html("Tic-tac-toe is a game in which two players take turns in drawing either an 'O' or an 'X' in squares of a grid.")
+            $("#0").prop("disabled", false);
+            $("#1").prop("disabled", false);
+            $("#2").prop("disabled", false);
+            $("#3").prop("disabled", false);
+            $("#4").prop("disabled", false);
+            $("#5").prop("disabled", false);
+            $("#6").prop("disabled", false);
+            $("#7").prop("disabled", false);
+            $("#8").prop("disabled", false);
+        }
+
+        function openNav() { 
+           // document.getElementById("mySidenav").style.width = "15em";
+            $("#mySidenav").css("width","15em");
+        }
+            
+        function closeNav() {
+           // document.getElementById("mySidenav").style.width = "0";
+           $("#mySidenav").css("width", "0em");
+        }
+
+        function switchTurn(){
+            playerTurn = (playerTurn == "O") ? "X" : "O";
+            $("#msg").html("It is now Player " + playerTurn + "'s turn...");
+        }
+        function click0(){
+            if (playerTurn == "X"){
+                $("#0").val("X");
+                switchTurn();
+                $("#0").prop("disabled", true);
+            }
+            else {
+                $("#0").val("O");
+                switchTurn();
+                $("#0").prop("disabled", true);
+            }
+        }
+        function click1(){
+            if (playerTurn == "X"){
+                $("#1").val("X");
+                switchTurn();
+                $("#1").prop("disabled", true);
+            }
+            else {
+                $("#1").val("O");
+                switchTurn();
+                $("#1").prop("disabled", true);
+            }
+        }
+        function click2(){
+            if (playerTurn == "X"){
+                $("#2").val("X");
+                switchTurn();
+                $("#2").prop("disabled", true);
+            }
+            else {
+                $("#2").val("O");
+                switchTurn();
+                $("#2").prop("disabled", true);
+            }
+        }
+        function click3(){
+            if (playerTurn == "X"){
+                $("#3").val("X");
+                switchTurn();
+                $("#3").prop("disabled", true);
+            }
+            else {
+                $("#3").val("O");
+                switchTurn();
+                $("#3").prop("disabled", true);
+            }
+        }
+        function click4(){
+            if (playerTurn == "X"){
+                $("#4").val("X");
+                switchTurn();
+                $("#4").prop("disabled", true);
+            }
+            else {
+                $("#4").val("O");
+                switchTurn();
+                $("#4").prop("disabled", true);
+            }
+        }
+        function click5(){
+            if (playerTurn == "X"){
+                $("#5").val("X");
+                switchTurn();
+                $("#5").prop("disabled", true);
+            }
+            else {
+                $("#5").val("O");
+                switchTurn();
+                $("#5").prop("disabled", true);
+            }
+        }
+        function click6(){
+            if (playerTurn == "X"){
+                $("#6").val("X");
+                switchTurn();
+                $("#6").prop("disabled", true);
+            }
+            else {
+                $("#6").val("O");
+                switchTurn();
+                $("#6").prop("disabled", true);
+            }
+        }
+        function click7(){
+            if (playerTurn == "X"){
+                $("#7").val("X");
+                switchTurn();
+                $("#7").prop("disabled", true);
+            }
+            else {
+                $("#7").val("O");
+                switchTurn();
+                $("#7").prop("disabled", true);
+            }
+        }
+        function click8(){
+            if (playerTurn == "X"){
+                $("#8").val("X");
+                switchTurn();
+                $("#8").prop("disabled", true);
+            }
+            else {
+                $("#8").val("O");
+                switchTurn();
+                $("#8").prop("disabled", true);
+            }
+        }
+        /* enabling bar circles to be interactive */
+        // document.getElementById("cir").addEventListener("dblclick", closeNav);
+        $("#cir").dblclick(function() {
+            closeNav();
+        });
+       
+        // document.getElementById("cirTwo").addEventListener("dblclick", closeNav);
+        $("#cirTwo").dblclick(function() {
+            closeNav();
+        });
+        
+        /* display current player turn information */
+
+        /* document.getElementById("container").addEventListener("click", function() {
+            document.getElementById("msg").innerHTML="It's time to play! Player " + playerTurn + ", take your turn!";
+        }); */
+
+        /* 9 event listeners for clicks on the grid */
+
+    /*    document.getElementById("0").addEventListener("click", function() {
+            document.getElementById("0").innerHTML=playerTurn;
+            if(playerTurn == "X") {
+                playerTurn = "O";
+            }
+            else {
+                playerTurn = "X";
+            }
+            document.getElementById("0").disabled = true;
+        });
+        */
+    </script>
+</body>
+</html>

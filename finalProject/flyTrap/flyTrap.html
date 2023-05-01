@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
+<meta charset=utf-8>
+<title>Fly Trap</title>
+<style>
+* {
+    font-family: 'Caveat', cursive;
+    text-align:center;
+}
+canvas {
+    border:1px solid grey;
+    background-image: url("media/gameBackground.jpg");
+}
+h1 {
+    color:white;
+    display: table;
+    margin: auto;
+    font-family: 'Caveat', cursive;
+    padding:10px;
+}
+button {
+    text-align:center;
+}
+html, body {
+    background-color: black;
+    height: 100%;
+}
+html, img {
+    display: table;
+    margin: auto;
+}
+body {
+    display: table-cell;
+    vertical-align: middle;
+}
+#menu {
+    animation:pulse-white 3s infinite;
+}
+#menu:hover {
+    animation:fadeOut 2s infinite;
+}
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 5em;
+}
+.sidenav a {
+    padding: .5em .5em .5em 2em;
+    text-decoration: none;
+    font-size: 2em;
+    color: #ffffff;
+    opacity:0.8;
+    display:block;
+    transition: 0.3s;
+}
+.sidenav a:hover {
+    color: #f1f1f1;
+    animation: fadeOut 5s infinite;
+}
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 1.5em;
+    font-size: 2em;
+    margin-left: 3em;
+}
+#howTo {
+    color:aquamarine;
+}
+#restart {
+    background-color: black;
+    color:white;
+}
+#directions {
+    animation: none;
+    color:white;
+    font-size:20px;
+}
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;} /* - padding for mobile */
+    .sidenav a {font-size: 18x;} /* - font size mobile */
+}
+@keyframes slideDown {
+    0% {-webkit-transform: translateY(-100%);}
+    100% {-webkit-transform: translateY(-5%);}
+}
+@keyframes fadeOut {
+    from {opacity: 90%;}
+    to {opacity: 1%;}
+}
+@keyframes fadeIn {
+    from {opacity: 0%;}
+    to {opacity: 90%;}
+}
+@keyframes pulse-white {
+    0% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+    }
+    
+    70% {
+      transform: scale(1);
+      box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+    }
+    
+    100% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+    }
+}
+  
+</style>
+</head>
+<body onload="startGame()">
+<h1>Fly away from the traps!</h1>
+<script>
+var myGamePiece; // fly //
+var myObstacles = []; // fly trap //
+var myScore;
+
+function startGame() {
+myGameArea.start();
+myScore = new component("30px", "Consolas", "black", 280, 40, "text");
+myGamePiece = new component(35, 40, "media/fly.png", 10, 120, "image");
+}
+// game cavas //
+var myGameArea = {
+    canvas : document.createElement("canvas"),
+    start : function() {
+        this.canvas.width = 780;
+        this.canvas.height = 290;
+        this.canvas.style.cursor = "none"; //hide the original cursor
+        this.context = this.canvas.getContext("2d");
+        document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+        this.frameNo = 0;
+        this.interval = setInterval(updateGameArea, 20);    // interval updating game area 50x per sec //
+        window.addEventListener('mousemove', function (e) {
+            myGameArea.x = e.pageX;
+            myGameArea.y = e.pageY;
+        })
+},
+    clear : function() {
+        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);  // clear frames //
+    }
+}
+
+function everyinterval(n) {
+  if ((myGameArea.frameNo / n) % 1 == 0) {return true;}
+  return false;
+}
+
+// creates new componets //
+function component(width, height, color, x, y, type) {
+this.type = type;
+if (type == "image") {
+    this.image = new Image();
+    this.image.src = color;
+}
+this.width = width;
+this.height = height;
+this.x = x;
+this.y = y;
+this.update = function(){
+    ctx = myGameArea.context;
+    if (this.type == "text") {
+        ctx.font = this.width + " " + this.height;
+        ctx.fillStyle = color;
+        ctx.fillText(this.text, this.x, this.y);
+    } 
+    else if (this.type == "image"){
+        if (type == "image") {
+        ctx.drawImage(this.image,
+            this.x,
+            this.y,
+            this.width, this.height);
+        }
+    }
+    else {
+        ctx.fillStyle = color;
+        ctx.fillRect(this.x, this.y, this.width, this.height);
+    }
+}
+this.crashWith = function(otherobj) {
+    var myleft = this.x;
+    var myright = this.x + (this.width);
+    var mytop = this.y;
+    var mybottom = this.y + (this.height);
+    var otherleft = otherobj.x;
+    var otherright = otherobj.x + (otherobj.width);
+    var othertop = otherobj.y;
+    var otherbottom = otherobj.y + (otherobj.height);
+    var crash = true;
+    if ((mybottom < othertop) ||
+    (mytop > otherbottom) ||
+    (myright < otherleft) ||
+    (myleft > otherright)) {
+      crash = false;
+    }
+    return crash;
+  }
+}
+
+// creates new componets //
+
+function updateGameArea() {
+    var x, y;
+    for (i = 0; i < myObstacles.length; i += 1) {
+    if (myGamePiece.crashWith(myObstacles[i])) {
+      myGameArea.stop();
+      return;
+        }
+    }
+    myGameArea.clear();
+    myGameArea.frameNo += 1;
+    if (myGameArea.frameNo == 1 || everyinterval(150)) {
+    x = myGameArea.canvas.width;
+    minHeight = 20;
+    maxHeight = 200;
+    height = Math.floor(Math.random()*(maxHeight-minHeight+1)+minHeight);
+    minGap = 85;
+    maxGap = 200;
+    gap = Math.floor(Math.random()*(maxGap-minGap+1)+minGap);
+    // generates new obstacles //
+    myObstacles.push(new component(30, height, "media/flyTrap2.png", x, 0, "image"));
+    myObstacles.push(new component(30, x - height - gap - 10, "media/flyTrap.png", x, height + gap, "image"));
+  }
+    for (i = 0; i < myObstacles.length; i += 1) {
+        myObstacles[i].x += -1;
+        myObstacles[i].update();
+    }
+    // allowing gamepiece to mouse w/ mouse //
+    if (myGameArea.x && myGameArea.y) {
+    myGamePiece.x = myGameArea.x;
+    myGamePiece.y = myGameArea.y;
+    } 
+    // ----- //
+    myScore.text = "SCORE: " + myGameArea.frameNo;
+    myScore.update();
+    myGamePiece.update();
+}
+
+//$("button").click(function(){
+//    location.reload(true);
+//});
+
+function everyinterval(n) {
+    if ((myGameArea.frameNo / n) % 1 == 0) {return true;}
+    return false;
+}
+
+function openNav() { 
+    document.getElementById("mySidenav").style.width = "15em";
+}
+            
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+}
+</script>
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../landing.html">Home</a>
+    <a href="../flyTrap/flyTrap.html">Fly Trap</a>
+    <a href="../tictactoe/tictactoe.html">Tic-Tac-Toe</a>
+    <a href="../pikachuDrag/pikachuDrag.html">Drop N' Drag</a>
+    <a href="../readme.txt">readme.txt</a>
+    <h1 id="howTo">How-To-Play</h1><br>
+    <p id="directions">Use your cursor to navigate the fly through the venus traps! Keep your distance or the game ends!</p>
+ </div>
+<br>
+<img src="media/bar2.png"><br><img src="media/downtri.png"><br><img id="menu" onclick="openNav()" ondblclick="closeNav();" src="media/menuDia.png">
+</body>
+</html>

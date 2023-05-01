@@ -1,19 +1,52 @@
 Thanks for visiting my page, hopefully you had some fun with these little web games.
 
-Games are still a work in progress.
+Games are completed for their first version.
 
-All content is free to be redistrubted or republished.
+All content is free to be redistrubted or republished unless specified otherwise.
+All to respective owners aswell...
 
---
+--- Pokemon Drag N' Drop ---
+Please note that this game will take some time to load...
 
-The audience this is targeting are those individuals who appreciate minimilistic pages. It has at most a handful of colors on the page at all times, keeping it kosher.
+This game allows players to grab and drop their favorite pokemon anywhere on the screen!
 
-I personally really liked what I made, so much that I used a couple of the shapes on the page to open the overlay navigation menu.
+My first game, the Pokemon drag and drop is very user friendly. 
 
-I selected or in other words ended up with this design scheme because I just reinstalled paint.net for this project. I used paint for a lot of the designs you see, I modified the logos plently to accopmany my white and black theme. I created the shape patterns within paint aswell.
+All characters will be presented in a row along the top of the screen.
 
-I believe that the menu design has a good chance to make visitors more engaged, due to the outline shape design accompanied with the pulsing elements on the page aswell.
+Refresh the page to restart
 
-The only notable coding issues that I encountered were changing my absolute values to relative. 
+For a future release, I want to add a side menu that contains the Pokemon.
 
--- Gavino Martinelli 3/13/23
+All content and images are belonging to the repsective Pokemon copyright.
+
+--- Tic-Tac-Toe ---
+My second game is Tic-Tac-Toe, it is a pattern game that can be played with a friend. 
+
+Left click on a tile to place an O or X, then align your placements to form a pattern of 3.
+
+After someone has reached a pattern of 3, the game grid will dissapear.
+
+Use the reset button to play again.
+
+In a future update, I would expand the grid to allow more patterns.
+
+Current bugs, if your winning pattern happens to be on the last tile of the grid, it will return a tie.
+
+All content on this page can be reused/repurposed without concern.
+
+--- Fly Trap --- 
+
+The third game is called Fly Trap.
+
+To play, use your cursor to navigate the fly through the path of venus traps!
+
+The traps are sensitive, keep as much distance from the top and the bottom traps.
+
+I noted an issue before, the obstacles size and images need to be revamped. 
+
+The mouse cursor will also be hidden while playing the game.
+
+For the future update, I want varying obstacles and to increase the speed with time.
+
+-- Gavino Martinelli 4/24/23
